@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1230.0"
+	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.mmit.controller.AuthorController">
+	<children>
+		<ScrollPane layoutX="85.0" layoutY="126.0"
+			prefHeight="215.0" prefWidth="1060.0">
+			<content>
+				<AnchorPane minHeight="0.0" minWidth="0.0"
+					prefHeight="212.0" prefWidth="1056.0">
+					<children>
+						<TableView fx:id="tbl_author" layoutX="-7.0"
+							layoutY="-1.0" prefHeight="215.0" prefWidth="1069.0">
+							<columns>
+								<TableColumn fx:id="col_id" prefWidth="132.0"
+									text="Id" />
+								<TableColumn fx:id="col_name" prefWidth="269.0"
+									text="Name" />
+								<TableColumn fx:id="col_birthday" prefWidth="254.0"
+									text="Birthday" />
+								<TableColumn fx:id="col_native_town"
+									prefWidth="210.0" text="Native Town" />
+								<TableColumn fx:id="col_created_by"
+									prefWidth="203.0" text="Created By" />
+							</columns>
+						</TableView>
+					</children>
+				</AnchorPane>
+			</content>
+		</ScrollPane>
+		<Pane layoutX="84.0" layoutY="350.0" prefHeight="295.0"
+			prefWidth="1060.0">
+			<children>
+				<TextField fx:id="txt_name" layoutX="388.0" layoutY="23.0"
+					prefHeight="37.0" prefWidth="285.0" promptText="Author Name">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</TextField>
+				<TextField fx:id="txt_native_town" layoutX="387.0"
+					layoutY="77.0" prefHeight="37.0" prefWidth="285.0"
+					promptText="Native Town">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</TextField>
+				<DatePicker fx:id="txt_birthday" layoutX="388.0"
+					layoutY="134.0" prefHeight="37.0" prefWidth="285.0"
+					promptText="Birthday">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</DatePicker>
+				<Button layoutX="402.0" layoutY="201.0"
+					mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0"
+					prefWidth="102.0" style="-fx-background-color: #1ccaff;" text="Add"
+					textFill="WHITE">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
+				<Button layoutX="549.0" layoutY="201.0"
+					mnemonicParsing="false" onAction="#btn_edit_click"
+					prefHeight="26.0" prefWidth="102.0"
+					style="-fx-background-color: #55ff00;" text="Edit" textFill="WHITE">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
+				<Button layoutX="479.0" layoutY="255.0"
+					mnemonicParsing="false" onAction="#btn_delete_click"
+					prefHeight="26.0" prefWidth="102.0"
+					style="-fx-background-color: #ff5500;" text="Delete"
+					textFill="WHITE">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
+			</children>
+		</Pane>
+		<Button layoutX="1094.0" layoutY="662.0"
+			mnemonicParsing="false" onAction="#btn_logout_click"
+			prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #00676c;" text="Log Out"
+			textFill="WHITE">
+			<cursor>
+				<Cursor fx:constant="HAND" />
+			</cursor>
+		</Button>
+		<Button layoutX="47.0" layoutY="662.0" mnemonicParsing="false"
+			onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
+			<cursor>
+				<Cursor fx:constant="HAND" />
+			</cursor>
+		</Button>
+		<Pane layoutX="16.0" layoutY="23.0" prefHeight="83.0"
+			prefWidth="1200.0" style="-fx-background-color: #aeffff;">
+			<children>
+				<Label layoutX="552.0" layoutY="24.0" text="Authors"
+					textFill="#514d4d">
+					<font>
+						<Font name="System Bold" size="24.0" />
+					</font>
+				</Label>
+			</children>
+		</Pane>
+	</children>
+</AnchorPane>

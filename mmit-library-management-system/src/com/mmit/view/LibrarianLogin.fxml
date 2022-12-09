@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1230.0"
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19"
+	fx:controller="com.mmit.controller.LibrarianRegisterController">
+	<children>
+		<Pane layoutX="14.0" layoutY="14.0" prefHeight="93.0"
+			prefWidth="1205.0" style="-fx-background-color: #aeffff;">
+			<children>
+				<Label layoutX="511.0" layoutY="29.0" text="Librarian Login"
+					textFill="#6b6565">
+					<font>
+						<Font name="System Bold" size="24.0" />
+					</font>
+				</Label>
+			</children>
+		</Pane>
+		<TextField fx:id="txt_email" layoutX="481.0" layoutY="252.0"
+			prefHeight="35.0" prefWidth="269.0" promptText="Email">
+			<cursor>
+				<Cursor fx:constant="HAND" />
+			</cursor>
+		</TextField>
+		<Button layoutX="577.0" layoutY="381.0" mnemonicParsing="false"
+			onAction="#btn_login_click" prefHeight="26.0" prefWidth="78.0"
+			style="-fx-background-color: #0cebff;" text="Login"
+			textFill="#323030">
+			<cursor>
+				<Cursor fx:constant="HAND" />
+			</cursor>
+		</Button>
+		<Button layoutX="673.0" layoutY="381.0" mnemonicParsing="false"
+			onAction="#btn_clear_click" prefHeight="26.0" prefWidth="78.0"
+			style="-fx-background-color: #ff0000;" text="Clear"
+			textFill="#323030">
+			<cursor>
+				<Cursor fx:constant="HAND" />
+			</cursor>
+		</Button>
+		<Label layoutX="514.0" layoutY="449.0" text="Not account yet?" />
+		<Label layoutX="643.0" layoutY="447.0"
+			onMouseClicked="#lbl_register_click" text="Register Here!"
+			textFill="#2402fc">
+			<font>
+				<Font name="System Bold Italic" size="16.0" />
+			</font>
+			<cursor>
+				<Cursor fx:constant="HAND" />
+			</cursor>
+		</Label>
+		<PasswordField fx:id="txt_password" layoutX="481.0"
+			layoutY="322.0" prefHeight="35.0" prefWidth="269.0"
+			promptText="Password">
+			<cursor>
+				<Cursor fx:constant="HAND" />
+			</cursor>
+		</PasswordField>
+	</children>
+</AnchorPane>
