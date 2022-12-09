@@ -3,6 +3,8 @@ package com.mmit;
 import java.io.IOException;
 import java.util.Optional;
 
+import com.mmit.model.Librarian;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -14,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 
 public class Start extends Application {
 	private static Stage original_stage;
+	public static Librarian librarianLogin;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -39,13 +42,19 @@ public class Start extends Application {
 		original_stage.setScene(scene);
 		original_stage.show();
 	}
-	
-	public static Optional<ButtonType> showAlert(AlertType type, String msg){
+
+	public static Optional<ButtonType> showAlert(AlertType type, String msg) {
 		Alert alert = new Alert(type);
 		alert.setTitle("Message");
 		alert.setHeaderText(null);
 		alert.setContentText(msg);
 		return alert.showAndWait();
+	}
+
+	public static void logoutButton() {
+		Optional<ButtonType> result = showAlert(AlertType.CONFIRMATION, "Are you sure to logout?");
+		if (result.get() == ButtonType.OK)
+			System.exit(0);
 	}
 
 	public static void main(String[] args) {
