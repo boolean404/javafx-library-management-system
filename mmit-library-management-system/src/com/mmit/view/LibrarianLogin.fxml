@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1230.0"
 	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19"
-	fx:controller="com.mmit.controller.LibrarianRegisterController">
+	fx:controller="com.mmit.controller.LibrarianLoginController">
 	<children>
 		<Pane layoutX="14.0" layoutY="14.0" prefHeight="93.0"
 			prefWidth="1205.0" style="-fx-background-color: #aeffff;">
