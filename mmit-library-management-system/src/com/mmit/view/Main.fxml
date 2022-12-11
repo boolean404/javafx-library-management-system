@@ -102,7 +102,7 @@
 			</cursor>
 		</Pane>
 		<Pane layoutX="906.0" layoutY="415.0"
-			onMouseClicked="#librarina_click" prefHeight="200.0"
+			onMouseClicked="#librarian_click" prefHeight="200.0"
 			prefWidth="200.0">
 			<children>
 				<ImageView fitHeight="150.0" fitWidth="200.0"

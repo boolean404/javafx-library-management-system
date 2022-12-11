@@ -2,7 +2,7 @@ package com.mmit.model;
 
 public class Librarian {
 	private int id;
-	private String email, password, nrc_no, phone;
+	private String email, password, nrcno, phone;
 
 	public int getId() {
 		return id;
@@ -28,12 +28,12 @@ public class Librarian {
 		this.email = email;
 	}
 
-	public String getNrc_no() {
-		return nrc_no;
+	public String getNrcno() {
+		return nrcno;
 	}
 
-	public void setNrc_no(String nrc_no) {
-		this.nrc_no = nrc_no;
+	public void setNrcno(String nrcno) {
+		this.nrcno = nrcno;
 	}
 
 	public String getPhone() {

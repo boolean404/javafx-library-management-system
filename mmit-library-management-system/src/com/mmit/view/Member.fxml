@@ -12,160 +12,139 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1230.0"
-	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="com.mmit.controller.MemberController">
+<AnchorPane prefHeight="720.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.MemberController">
 	<children>
-		<ScrollPane layoutX="84.0" layoutY="181.0"
-			prefHeight="215.0" prefWidth="1060.0">
+		<ScrollPane layoutX="86.0" layoutY="220.0" prefHeight="215.0" prefWidth="1060.0">
 			<content>
-				<AnchorPane minHeight="0.0" minWidth="0.0"
-					prefHeight="212.0" prefWidth="1056.0">
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="212.0" prefWidth="1056.0">
 					<children>
-						<TableView fx:id="tbl_member" layoutX="-7.0"
-							layoutY="-1.0" prefHeight="215.0" prefWidth="1069.0">
+						<TableView fx:id="tbl_member" layoutX="-7.0" layoutY="-1.0" prefHeight="215.0" prefWidth="1069.0">
 							<columns>
-								<TableColumn fx:id="col_card_id" prefWidth="120.0"
-									text="Card Id" />
-								<TableColumn fx:id="col_roll_no" prefWidth="127.0"
-									text="Roll No." />
-								<TableColumn fx:id="col_name" prefWidth="182.0"
-									text="Name" />
-								<TableColumn fx:id="col_year" prefWidth="128.0"
-									text="Year" />
-								<TableColumn fx:id="col_academic_year"
-									prefWidth="156.0" text="Academic Year" />
-								<TableColumn fx:id="col_created_date"
-									prefWidth="183.0" text="Created Date" />
-								<TableColumn fx:id="col_expired_date"
-									prefWidth="182.0" text="Expired Date" />
+								<TableColumn fx:id="col_card_id" prefWidth="120.0" text="Card Id" />
+								<TableColumn fx:id="col_roll_no" prefWidth="127.0" text="Roll No." />
+								<TableColumn fx:id="col_name" prefWidth="182.0" text="Name" />
+								<TableColumn fx:id="col_year" prefWidth="128.0" text="Year" />
+								<TableColumn fx:id="col_academic_year" prefWidth="156.0" text="Academic Year" />
+								<TableColumn fx:id="col_created_date" prefWidth="183.0" text="Created Date" />
+								<TableColumn fx:id="col_expired_date" prefWidth="182.0" text="Expired Date" />
 							</columns>
 						</TableView>
 					</children>
 				</AnchorPane>
 			</content>
 		</ScrollPane>
-		<Pane layoutX="84.0" layoutY="403.0" prefHeight="245.0"
-			prefWidth="1060.0">
+		<Pane layoutX="84.0" layoutY="454.0" prefHeight="194.0" prefWidth="1060.0">
 			<children>
-				<Button layoutX="358.0" layoutY="204.0"
-					mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0"
-					prefWidth="102.0" style="-fx-background-color: #1ccaff;" text="Add"
-					textFill="WHITE">
+				<Button layoutX="358.0" layoutY="153.0" mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #1ccaff;" text="Add" textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<Button layoutX="479.0" layoutY="204.0"
-					mnemonicParsing="false" onAction="#btn_edit_click"
-					prefHeight="26.0" prefWidth="102.0"
-					style="-fx-background-color: #55ff00;" text="Edit" textFill="WHITE">
+				<Button layoutX="479.0" layoutY="153.0" mnemonicParsing="false" onAction="#btn_edit_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #55ff00;" text="Edit" textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<TextField fx:id="txt_name" layoutX="219.0" layoutY="44.0"
-					prefHeight="35.0" prefWidth="244.0" promptText="Name">
+				<TextField fx:id="txt_name" layoutX="219.0" layoutY="10.0" prefHeight="35.0" prefWidth="244.0" promptText="Name">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</TextField>
-				<Label layoutX="125.0" layoutY="51.0" text="Name">
+				<Label layoutX="125.0" layoutY="17.0" text="Name">
 					<font>
 						<Font size="16.0" />
 					</font>
 				</Label>
-				<TextField fx:id="txt_roll_no" layoutX="219.0"
-					layoutY="128.0" prefHeight="35.0" prefWidth="244.0"
-					promptText="Roll No.">
+				<TextField fx:id="txt_roll_no" layoutX="219.0" layoutY="77.0" prefHeight="35.0" prefWidth="244.0" promptText="Roll No.">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</TextField>
-				<Label layoutX="125.0" layoutY="135.0" text="Roll No.">
+				<Label layoutX="125.0" layoutY="84.0" text="Roll No.">
 					<font>
 						<Font size="16.0" />
 					</font>
 				</Label>
-				<Label layoutX="530.0" layoutY="135.0" text="Year">
+				<Label layoutX="530.0" layoutY="84.0" text="Year">
 					<font>
 						<Font size="16.0" />
 					</font>
 				</Label>
-				<ComboBox fx:id="cbo_year" layoutX="684.0" layoutY="128.0"
-					prefHeight="35.0" prefWidth="244.0" promptText="Choose Year">
+				<ComboBox fx:id="cbo_year" layoutX="684.0" layoutY="77.0" prefHeight="35.0" prefWidth="244.0" promptText="Choose Year">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</ComboBox>
-				<TextField fx:id="txt_academic_year" layoutX="681.0"
-					layoutY="45.0" prefHeight="35.0" prefWidth="244.0"
-					promptText="Academic Year (eg: 2016 - 2017)">
+				<TextField fx:id="txt_academic_year" layoutX="681.0" layoutY="11.0" prefHeight="35.0" prefWidth="244.0" promptText="Academic Year (eg: 2016 - 2017)">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</TextField>
-				<Label layoutX="530.0" layoutY="52.0" text="Academic Year">
+				<Label layoutX="530.0" layoutY="18.0" text="Academic Year">
 					<font>
 						<Font size="16.0" />
 					</font>
 				</Label>
-				<Button layoutX="601.0" layoutY="204.0"
-					mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0"
-					prefWidth="102.0" style="-fx-background-color: #ff0000;"
-					text="Delete" textFill="WHITE">
+				<Button layoutX="601.0" layoutY="153.0" mnemonicParsing="false" onAction="#btn_delete_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #ff0000;" text="Delete" textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
 			</children>
 		</Pane>
-		<Button layoutX="1094.0" layoutY="662.0"
-			mnemonicParsing="false" onAction="#btn_logout_click"
-			prefHeight="26.0" prefWidth="102.0"
-			style="-fx-background-color: #00676c;" text="Log Out"
-			textFill="WHITE">
+		<Button layoutX="1094.0" layoutY="662.0" mnemonicParsing="false" onAction="#btn_logout_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #00676c;" text="Log Out" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Button layoutX="47.0" layoutY="662.0" mnemonicParsing="false"
-			onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0"
-			style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
+		<Button layoutX="47.0" layoutY="662.0" mnemonicParsing="false" onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Pane layoutX="16.0" layoutY="23.0" prefHeight="83.0"
-			prefWidth="1200.0" style="-fx-background-color: #aeffff;">
+		<Pane layoutX="16.0" layoutY="23.0" prefHeight="83.0" prefWidth="1200.0" style="-fx-background-color: #aeffff;">
 			<children>
-				<Label layoutX="544.0" layoutY="24.0" text="Members"
-					textFill="#514d4d">
+				<Label layoutX="544.0" layoutY="24.0" text="Members" textFill="#514d4d">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Label>
 			</children>
 		</Pane>
-		<TextField fx:id="txt_card_id" layoutX="492.0"
-			layoutY="124.0" prefHeight="35.0" prefWidth="244.0"
-			promptText="Member Card ID">
+		<TextField fx:id="txt_academic_year_search" layoutX="440.0" layoutY="154.0" prefHeight="35.0" prefWidth="244.0" promptText="Academic Year (eg: 2016 - 2017)">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</TextField>
-		<Button layoutX="752.0" layoutY="124.0" mnemonicParsing="false"
-			onAction="#btn_search_click" prefHeight="35.0" prefWidth="82.0"
-			style="-fx-background-color: #55ff7f;" text="Search" textFill="WHITE">
+		<Button layoutX="1001.0" layoutY="154.0" mnemonicParsing="false" onAction="#btn_search_click" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #55ff7f;" text="Search" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Label layoutX="180.0" layoutY="131.0"
-			text="Enter Member card id to edit or delete">
+		<Label layoutX="153.0" layoutY="123.0" text="Name Search">
 			<font>
 				<Font size="16.0" />
 			</font>
 		</Label>
+      <TextField fx:id="txt_name_search" layoutX="150.0" layoutY="154.0" prefHeight="35.0" prefWidth="244.0" promptText="Member Name">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </TextField>
+      <Label layoutX="440.0" layoutY="123.0" text="Academic Year Search">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="726.0" layoutY="123.0" text="Year Search">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbo_year_search" layoutX="726.0" layoutY="154.0" prefHeight="35.0" prefWidth="244.0" promptText="Choose Year">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
 	</children>
 </AnchorPane>

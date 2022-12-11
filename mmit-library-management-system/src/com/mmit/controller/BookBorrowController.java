@@ -1,5 +1,9 @@
 package com.mmit.controller;
 
+import java.io.IOException;
+
+import com.mmit.Start;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -39,8 +43,8 @@ public class BookBorrowController {
     private TextField txt_code;
 
     @FXML
-    void btn_back_click(ActionEvent event) {
-
+    void btn_back_click(ActionEvent event) throws IOException {
+    	Start.changeScene("view/Book.fxml");
     }
 
     @FXML
@@ -50,7 +54,7 @@ public class BookBorrowController {
 
     @FXML
     void btn_logout_click(ActionEvent event) {
-
+    	Start.logoutButton();
     }
 
 }

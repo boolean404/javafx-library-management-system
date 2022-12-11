@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Book {
 	private int code;
-	private String title, avaliable;
+	private String title, available;
 	private LocalDate publish_date;
 	private Author author;
 	private Category category;
@@ -26,12 +26,12 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getAvaliable() {
-		return avaliable;
+	public String getAvailable() {
+		return available;
 	}
 
-	public void setAvaliable(String avaliable) {
-		this.avaliable = avaliable;
+	public void setAvailable(String available) {
+		this.available = available;
 	}
 
 	public LocalDate getPublish_date() {
@@ -64,6 +64,18 @@ public class Book {
 
 	public void setLibrarian(Librarian librarian) {
 		this.librarian = librarian;
+	}
+
+	public String getAuthorName() {
+		return this.author.getName();
+	}
+
+	public String getCategoryName() {
+		return this.category.getName();
+	}
+
+	public String getLibrarianEmail() {
+		return this.librarian.getEmail();
 	}
 
 }

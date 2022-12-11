@@ -16,7 +16,7 @@ import javafx.fxml.FXMLLoader;
 
 public class Start extends Application {
 	private static Stage original_stage;
-	public static Librarian librarianLogin;
+	public static Librarian librarian_login;
 
 	@Override
 	public void start(Stage primaryStage) {

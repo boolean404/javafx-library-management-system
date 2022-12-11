@@ -21,9 +21,10 @@
 					layoutY="99.0" prefHeight="42.0" prefWidth="253.0"
 					promptText="Title" />
 				<Button layoutX="620.0" layoutY="391.0"
-					mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0"
-					prefWidth="102.0" style="-fx-background-color: #ff0000;"
-					text="Delete" textFill="WHITE">
+					mnemonicParsing="false" onAction="#btn_delete_click"
+					prefHeight="26.0" prefWidth="102.0"
+					style="-fx-background-color: #ff0000;" text="Delete"
+					textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>

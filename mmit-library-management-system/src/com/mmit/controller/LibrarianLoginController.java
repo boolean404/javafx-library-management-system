@@ -29,25 +29,27 @@ public class LibrarianLoginController {
 
 	@FXML
 	void btn_login_click(ActionEvent event) throws IOException {
-//		Start.changeScene("view/Main.fxml");
-		String email = txt_email.getText();
-		String password = txt_password.getText();
+		try {
+			String email = txt_email.getText();
+			String password = txt_password.getText();
 
-		Librarian librarian = DatabaseHandler.librarianLogin(email, password);
+			Librarian librarian = DatabaseHandler.librarianLogin(email, password);
 
-		if (email.isEmpty())
-			Start.showAlert(AlertType.ERROR, "Email must not be Empty!");
-		else if (password.isEmpty())
-			Start.showAlert(AlertType.ERROR, "Password must not be Empty!");
-		else if (email.isEmpty() && password.isEmpty())
-			Start.showAlert(AlertType.ERROR, "Email must not be Empty!");
-		else if (librarian == null)
-			Start.showAlert(AlertType.ERROR, "Login Fail! Email or Password is incorrect, try again!");
-		else {
-			Start.librarianLogin = librarian;
-			Start.changeScene("view/Main.fxml");
+			if (email.isEmpty())
+				Start.showAlert(AlertType.ERROR, "Email must not be Empty!");
+			else if (password.isEmpty())
+				Start.showAlert(AlertType.ERROR, "Password must not be Empty!");
+			else if (email.isEmpty() && password.isEmpty())
+				Start.showAlert(AlertType.ERROR, "Email must not be Empty!");
+			else if (librarian == null)
+				Start.showAlert(AlertType.ERROR, "Login Fail! Email or Password is incorrect, try again!");
+			else {
+				Start.librarian_login = librarian;
+				Start.changeScene("view/Main.fxml");
+			}
+		} catch (Exception e) {
+			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
-
 	}
 
 	@FXML
