@@ -14,6 +14,7 @@ import com.mmit.model.Author;
 import com.mmit.model.Book;
 import com.mmit.model.Category;
 import com.mmit.model.Librarian;
+import com.mmit.model.Member;
 
 public class DatabaseHandler {
 
@@ -470,8 +471,125 @@ public class DatabaseHandler {
 		}
 
 	}
-
 	// end book section
+
+	// start member section
+	public static void memberRegister(Member member) throws Exception {
+		try (Connection con = createConnection()) {
+			var query = "INSERT INTO members(roll_no, name, year, academic_year, expired_date)VALUES(?, ?, ?, ?, ?)";
+			var pstm = con.prepareStatement(query);
+
+			pstm.setInt(1, member.getRoll_no());
+			pstm.setString(2, member.getName());
+			pstm.setString(3, member.getYear());
+			pstm.setString(4, member.getAcademic_year() + " - " + (Integer.parseInt(member.getAcademic_year()) + 1));
+			pstm.setDate(5, Date.valueOf(LocalDate.now().plusYears(1)));
+
+			pstm.executeUpdate();
+
+		} catch (Exception e) {
+			throw e;
+		}
+
+	}
+
+	public static List<Member> showAllMember() throws Exception {
+		List<Member> member_list = new ArrayList<>();
+		try (Connection con = createConnection()) {
+			var query = "SELECT * FROM members";
+			var pstm = con.prepareStatement(query);
+			ResultSet rs = pstm.executeQuery();
+
+			while (rs.next()) {
+				Member member = new Member();
+				member.setCard_id(rs.getInt("card_id"));
+				member.setRoll_no(rs.getInt("roll_no"));
+				member.setName(rs.getString("name"));
+				member.setAcademic_year(rs.getString("academic_year"));
+				member.setYear(rs.getString("year"));
+				member.setCreated_date(LocalDate.parse(rs.getString("created_date")));
+				member.setExpired_date(LocalDate.parse(rs.getString("expired_date")));
+
+				member_list.add(member);
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return member_list;
+	}
+
+	public static void deleteMember(int card_id) throws Exception {
+		try (Connection con = createConnection()) {
+			var query = "DELETE FROM members WHERE card_id = ?";
+			var pstm = con.prepareStatement(query);
+			pstm.setInt(1, card_id);
+
+			pstm.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	public static void editMember(Member member) throws Exception {
+		try (Connection con = createConnection()) {
+			var query = "UPDATE members SET roll_no = ?, name = ?, year = ?, academic_year = ? WHERE card_id = ?";
+			var pstm = con.prepareStatement(query);
+			pstm.setInt(1, member.getRoll_no());
+			pstm.setString(2, member.getName());
+			pstm.setString(3, member.getYear());
+			pstm.setString(4, member.getAcademic_year() + " - " + (Integer.parseInt(member.getAcademic_year()) + 1));
+			pstm.setInt(5, member.getCard_id());
+
+			pstm.executeUpdate();
+
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	public static List<Member> searchMember(String name, String academic_year, String year) throws Exception {
+		List<Member> member_list = new ArrayList<>();
+
+		try (Connection con = createConnection()) {
+			var query = "SELECT * FROM members WHERE card_id >=0";
+			List<String> input_search = new ArrayList<>();
+			if (!name.isEmpty()) {
+				query += " AND name LIKE ?";
+				input_search.add("%" + name + "%");
+			}
+			if (!academic_year.isEmpty()) {
+				query += " AND academic_year LIKE ?";
+				input_search.add("%" + academic_year + "%");
+			}
+			if (year != null) {
+				query += " AND year LIKE ?";
+				input_search.add("%" + year + "%");
+			}
+			var pstm = con.prepareStatement(query);
+			for (int i = 0; i < input_search.size(); i++) {
+				pstm.setObject((i + 1), input_search.get(i));
+			}
+
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				Member member = new Member();
+				member.setCard_id(rs.getInt("card_id"));
+				member.setRoll_no(rs.getInt("roll_no"));
+				member.setName(rs.getString("name"));
+				member.setAcademic_year(rs.getString("academic_year"));
+				member.setYear(rs.getString("year"));
+				member.setCreated_date(LocalDate.parse(rs.getString("created_date")));
+				member.setExpired_date(LocalDate.parse(rs.getString("expired_date")));
+
+				member_list.add(member);
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return member_list;
+	}
+
+	// end member section
 
 	// start category section
 	// end category section

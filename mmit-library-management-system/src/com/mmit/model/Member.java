@@ -4,8 +4,16 @@ import java.time.LocalDate;
 
 public class Member {
 	private int card_id, roll_no;
-	private String year, academic_year;
+	private String name, year, academic_year;
 	private LocalDate created_date, expired_date;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public int getCard_id() {
 		return card_id;
@@ -35,8 +43,8 @@ public class Member {
 		return academic_year;
 	}
 
-	public void setAcademic_year(String academic_year) {
-		this.academic_year = academic_year;
+	public void setAcademic_year(String string) {
+		this.academic_year = string;
 	}
 
 	public LocalDate getCreated_date() {

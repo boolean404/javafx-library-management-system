@@ -88,10 +88,16 @@ public class AuthorController implements Initializable {
 	@FXML
 	void btn_delete_click(ActionEvent event) {
 		try {
+			String name = txt_name.getText();
+			if (name.isEmpty()) {
+				Start.showAlert(AlertType.INFORMATION, "Select author from table first to delete!");
+				return;
+			}
 			Optional<ButtonType> result = Start.showAlert(AlertType.CONFIRMATION,
 					"Are you sure want to delete this author?");
 			if (result.get() == ButtonType.OK) {
 				DatabaseHandler.deleteAuthor(selected_author.getId());
+				Start.showAlert(AlertType.INFORMATION, "Successful deleted author");
 				clearInputData();
 				loadAuthor();
 			}
@@ -103,6 +109,11 @@ public class AuthorController implements Initializable {
 	@FXML
 	void btn_edit_click(ActionEvent event) {
 		try {
+			String name = txt_name.getText();
+			if (name.isEmpty()) {
+				Start.showAlert(AlertType.INFORMATION, "Select author from table first to edit!");
+				return;
+			}
 			selected_author.setName(txt_name.getText());
 			selected_author.setCity(txt_native_town.getText());
 			selected_author.setBirthday(txt_birthday.getValue());
@@ -119,6 +130,18 @@ public class AuthorController implements Initializable {
 	@FXML
 	void btn_logout_click(ActionEvent event) {
 		Start.logoutButton();
+	}
+
+	private void clearInputData() {
+		txt_name.setText(null);
+		txt_native_town.setText(null);
+		txt_birthday.setValue(null);
+	}
+
+	private void loadAuthor() throws Exception {
+		List<Author> list = DatabaseHandler.showAllAuthor();
+		tbl_author.setItems(FXCollections.observableArrayList(list));
+
 	}
 
 	@Override
@@ -144,18 +167,6 @@ public class AuthorController implements Initializable {
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
-	}
-
-	private void clearInputData() {
-		txt_name.setText(null);
-		txt_native_town.setText(null);
-		txt_birthday.setValue(null);
-	}
-
-	private void loadAuthor() throws Exception {
-		List<Author> list = DatabaseHandler.showAllAuthor();
-		tbl_author.setItems(FXCollections.observableArrayList(list));
-
 	}
 
 }

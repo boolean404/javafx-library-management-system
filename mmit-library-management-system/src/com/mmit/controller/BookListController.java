@@ -7,10 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.mmit.Start;
-import com.mmit.model.Author;
 import com.mmit.model.Book;
-import com.mmit.model.Category;
-import com.mmit.model.Librarian;
 import com.mmit.util.DatabaseHandler;
 
 import javafx.collections.FXCollections;
