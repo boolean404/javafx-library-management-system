@@ -1,15 +1,18 @@
 package com.mmit.controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.mmit.Start;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class BookController {
+public class BookController implements Initializable {
 
 	@FXML
 	private Text txt_current_libraian;
@@ -52,6 +55,11 @@ public class BookController {
 	@FXML
 	void search_book_click(MouseEvent event) throws IOException {
 		Start.changeScene("view/BookSearch.fxml");
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		txt_current_libraian.setText(Start.librarian_login.getEmail()); 
 	}
 
 }

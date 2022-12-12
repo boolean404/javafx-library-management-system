@@ -665,6 +665,47 @@ public class DatabaseHandler {
 
 	}
 
+	public static List<Transaction> searchTransactionByCardId(int card_id) throws Exception {
+		List<Transaction> transaction_list = new ArrayList<>();
+
+		try (Connection con = createConnection()) {
+			var query = """
+					SELECT transactions.*, members.card_id, books.code, librarians.email
+					FROM transactions, members, books, librarians
+					WHERE transactions.card_id = members.card_id && transactions.book_id = books.code && transactions.lib_id = librarians.id && members.card_id = ?
+					""";
+			var pstm = con.prepareStatement(query);
+			pstm.setInt(1, card_id);
+			
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				Member member = new Member();
+				member.setCard_id(rs.getInt("card_id"));
+
+				Book book = new Book();
+				book.setCode(rs.getInt("book_id"));
+
+				Librarian librarian = new Librarian();
+				librarian.setEmail(rs.getString("email"));
+
+				Transaction transaction = new Transaction();
+				transaction.setId(rs.getInt("id"));
+				transaction.setMember(member);
+				transaction.setBook(book);
+				transaction.setBorrow_date(LocalDate.parse(rs.getString("borrow_date")));
+				transaction.setDue_date(LocalDate.parse(rs.getString("due_date")));
+				transaction.setFees(rs.getFloat("fees"));
+				transaction.setLibrarian(librarian);
+
+				transaction_list.add(transaction);
+			}
+		} catch (Exception e) {
+			throw e;
+
+		}
+		return transaction_list;
+	}
+
 	// end transaction section
 
 	// start category section

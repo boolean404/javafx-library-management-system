@@ -10,26 +10,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1229.0"
-	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="com.mmit.controller.MainController">
+<AnchorPane prefHeight="720.0" prefWidth="1229.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.MainController">
 	<children>
-		<Pane layoutX="14.0" layoutY="14.0" prefHeight="83.0"
-			prefWidth="1200.0" style="-fx-background-color: #aeffff;">
+		<Pane layoutX="14.0" layoutY="14.0" prefHeight="83.0" prefWidth="1200.0" style="-fx-background-color: #aeffff;">
 			<children>
-				<Label layoutX="389.0" layoutY="24.0"
-					text="MMIT Library Management System" textFill="#514d4d">
+				<Label layoutX="389.0" layoutY="24.0" text="MMIT Library Management System" textFill="#514d4d">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Label>
 			</children>
 		</Pane>
-		<Pane layoutX="514.0" layoutY="153.0"
-			onMouseClicked="#book_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="514.0" layoutY="153.0" onMouseClicked="#book_click" prefHeight="200.0" prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0"
-					layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../../../../assets/images/book.png" />
 					</image>
@@ -44,11 +38,9 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="124.0" layoutY="415.0"
-			onMouseClicked="#member_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="124.0" layoutY="415.0" onMouseClicked="#member_click" prefHeight="200.0" prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0"
-					pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../../../../assets/images/member.jpeg" />
 					</image>
@@ -63,11 +55,9 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="906.0" layoutY="153.0"
-			onMouseClicked="#category_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="906.0" layoutY="153.0" onMouseClicked="#category_click" prefHeight="200.0" prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0"
-					layoutX="25.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../../../../assets/images/category.png" />
 					</image>
@@ -82,11 +72,9 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="124.0" layoutY="153.0"
-			onMouseClicked="#author_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="124.0" layoutY="153.0" onMouseClicked="#author_click" prefHeight="200.0" prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0"
-					layoutX="25.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../../../../assets/images/author.png" />
 					</image>
@@ -101,12 +89,9 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="906.0" layoutY="415.0"
-			onMouseClicked="#librarian_click" prefHeight="200.0"
-			prefWidth="200.0">
+		<Pane layoutX="906.0" layoutY="415.0" onMouseClicked="#librarian_click" prefHeight="200.0" prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0"
-					layoutX="28.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="28.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../../../../assets/images/librarian.png" />
 					</image>
@@ -121,20 +106,14 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Button layoutX="1098.0" layoutY="669.0"
-			mnemonicParsing="false" onAction="#btn_logout_click"
-			prefHeight="26.0" prefWidth="96.0"
-			style="-fx-background-color: #00676c;" text="Logout" textFill="WHITE">
+		<Button layoutX="1098.0" layoutY="669.0" mnemonicParsing="false" onAction="#btn_logout_click" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: #00676c;" text="Logout" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Pane layoutX="514.0" layoutY="415.0"
-			onMouseClicked="#transaction_click" prefHeight="200.0"
-			prefWidth="200.0">
+		<Pane layoutX="514.0" layoutY="415.0" onMouseClicked="#transaction_click" prefHeight="200.0" prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0"
-					layoutX="25.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../../../../assets/images/transaction.png" />
 					</image>
@@ -149,18 +128,14 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="860.0" layoutY="664.0" prefHeight="48.0"
-			prefWidth="200.0">
+		<Pane layoutX="877.0" layoutY="658.0" prefHeight="48.0" prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="35.0" fitWidth="43.0" layoutX="7.0"
-					layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="35.0" fitWidth="43.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../../../../assets/images/profile.png" />
 					</image>
 				</ImageView>
-				<Text fx:id="txt_current_libraian" layoutX="50.0"
-					layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0"
-					text="admin@mmit.com" />
+				<Text fx:id="txt_current_libraian" layoutX="50.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin@mmit.com" />
 				<Label layoutX="50.0" layoutY="5.0" text="Librarian">
 					<font>
 						<Font size="14.0" />
