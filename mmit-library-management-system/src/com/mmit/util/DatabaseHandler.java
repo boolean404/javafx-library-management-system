@@ -15,6 +15,7 @@ import com.mmit.model.Book;
 import com.mmit.model.Category;
 import com.mmit.model.Librarian;
 import com.mmit.model.Member;
+import com.mmit.model.Transaction;
 
 public class DatabaseHandler {
 
@@ -588,8 +589,83 @@ public class DatabaseHandler {
 		}
 		return member_list;
 	}
-
 	// end member section
+
+	// start transaction section
+	public static List<Transaction> showAllTransaction() throws Exception {
+		List<Transaction> transaction_list = new ArrayList<>();
+
+		try (Connection con = createConnection()) {
+			var query = """
+					SELECT transactions.*, members.card_id, books.code, librarians.email
+					FROM transactions, members, books, librarians
+					WHERE transactions.card_id = members.card_id && transactions.book_id = books.code && transactions.lib_id = librarians.id
+					""";
+			var pstm = con.prepareStatement(query);
+
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				Member member = new Member();
+				member.setCard_id(rs.getInt("card_id"));
+
+				Book book = new Book();
+				book.setCode(rs.getInt("book_id"));
+
+				Librarian librarian = new Librarian();
+				librarian.setEmail(rs.getString("email"));
+
+				Transaction transaction = new Transaction();
+				transaction.setId(rs.getInt("id"));
+				transaction.setMember(member);
+				transaction.setBook(book);
+				transaction.setBorrow_date(LocalDate.parse(rs.getString("borrow_date")));
+				transaction.setDue_date(LocalDate.parse(rs.getString("due_date")));
+				transaction.setFees(rs.getFloat("fees"));
+				transaction.setLibrarian(librarian);
+
+				transaction_list.add(transaction);
+			}
+		} catch (Exception e) {
+			throw e;
+
+		}
+		return transaction_list;
+	}
+
+	public static void borrowBook(Transaction transaction) throws Exception {
+		try (Connection con = createConnection()) {
+			var query = "INSERT INTO transactions(card_id, book_id, borrow_date, due_date, fees, lib_id)VALUES(?, ?, ?, ?, ?, ?)";
+			var pstm = con.prepareStatement(query);
+
+			pstm.setInt(1, transaction.getMember().getCard_id());
+			pstm.setInt(2, transaction.getBookCode());
+			pstm.setDate(3, Date.valueOf(transaction.getBorrow_date()));
+			pstm.setDate(4, Date.valueOf(transaction.getDue_date()));
+			pstm.setFloat(5, transaction.getFees());
+			pstm.setInt(6, transaction.getLibrarian().getId());
+
+			pstm.executeUpdate();
+
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	public static void editBookAvailable(Book book) throws Exception {
+		try (Connection con = createConnection()) {
+			var query = "UPDATE books SET available = ? WHERE code = ?";
+			var pstm = con.prepareStatement(query);
+			pstm.setString(1, book.getAvailable());
+			pstm.setInt(2, book.getCode());
+
+			pstm.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		}
+
+	}
+
+	// end transaction section
 
 	// start category section
 	// end category section

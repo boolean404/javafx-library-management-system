@@ -64,7 +64,7 @@
 			</cursor>
 		</Pane>
 		<Pane layoutX="515.0" layoutY="188.0"
-			onMouseClicked="#edit_book_click" prefHeight="200.0"
+			onMouseClicked="#edit_and_delete_book_click" prefHeight="200.0"
 			prefWidth="200.0">
 			<children>
 				<ImageView fitHeight="150.0" fitWidth="200.0"
@@ -75,8 +75,8 @@
 							url="@../../../../assets/images/book_menu/edit_book.png" />
 					</image>
 				</ImageView>
-				<Label layoutX="62.0" layoutY="164.0" text="Edit Book"
-					textFill="#464242">
+				<Label layoutX="26.0" layoutY="164.0"
+					text="Edit &amp; Delete Book" textFill="#464242">
 					<font>
 						<Font name="System Bold" size="16.0" />
 					</font>
@@ -110,7 +110,7 @@
 			</cursor>
 		</Pane>
 		<Pane layoutX="879.0" layoutY="416.0"
-			onMouseClicked="#delete_book_click" prefHeight="200.0"
+			onMouseClicked="#return_book_click" prefHeight="200.0"
 			prefWidth="200.0">
 			<children>
 				<ImageView fitHeight="150.0" fitWidth="200.0"
@@ -118,10 +118,10 @@
 					preserveRatio="true">
 					<image>
 						<Image
-							url="@../../../../assets/images/book_menu/delete_book.png" />
+							url="@../../../../assets/images/book_menu/return_book.png" />
 					</image>
 				</ImageView>
-				<Label layoutX="62.0" layoutY="164.0" text="Delete Book"
+				<Label layoutX="50.0" layoutY="164.0" text="Return Book"
 					textFill="#464242">
 					<font>
 						<Font name="System Bold" size="16.0" />

@@ -9,6 +9,7 @@ public class Transaction {
 	private LocalDate borrow_date, due_date, return_date;
 	private float fees;
 	private Librarian librarian;
+	private Member member;
 
 	public int getId() {
 		return id;
@@ -62,6 +63,14 @@ public class Transaction {
 		return fees;
 	}
 
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
 	public void setFees(float fees) {
 		this.fees = fees;
 	}
@@ -72,6 +81,18 @@ public class Transaction {
 
 	public void setLibrarian(Librarian librarian) {
 		this.librarian = librarian;
+	}
+
+	public int getMemberCardId() {
+		return this.member.getCard_id();
+	}
+
+	public int getBookCode() {
+		return this.book.getCode();
+	}
+
+	public String getLibrarianEmail() {
+		return this.librarian.getEmail();
 	}
 
 }

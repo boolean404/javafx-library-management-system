@@ -11,47 +11,47 @@ import javafx.scene.text.Text;
 
 public class BookController {
 
-    @FXML
-    private Text txt_current_libraian;
+	@FXML
+	private Text txt_current_libraian;
 
-    @FXML
-    void add_book_click(MouseEvent event) throws IOException {
-    	Start.changeScene("view/BookAdd.fxml");
-    }
+	@FXML
+	void add_book_click(MouseEvent event) throws IOException {
+		Start.changeScene("view/BookAdd.fxml");
+	}
 
-    @FXML
-    void book_list_click(MouseEvent event) throws IOException {
-    	Start.changeScene("view/BookList.fxml");
-    }
+	@FXML
+	void book_list_click(MouseEvent event) throws IOException {
+		Start.changeScene("view/BookList.fxml");
+	}
 
-    @FXML
-    void borrow_book_click(MouseEvent event) throws IOException {
-    	Start.changeScene("view/BookBorrow.fxml");
-    }
+	@FXML
+	void borrow_book_click(MouseEvent event) throws IOException {
+		Start.changeScene("view/BookBorrow.fxml");
+	}
 
-    @FXML
-    void btn_back_click(ActionEvent event) throws IOException {
-    	Start.changeScene("view/Main.fxml");
-    }
+	@FXML
+	void btn_back_click(ActionEvent event) throws IOException {
+		Start.changeScene("view/Main.fxml");
+	}
 
-    @FXML
-    void btn_logout_click(ActionEvent event) {
-    	Start.logoutButton();
-    }
+	@FXML
+	void btn_logout_click(ActionEvent event) {
+		Start.logoutButton();
+	}
 
-    @FXML
-    void delete_book_click(MouseEvent event) throws IOException {
-    	Start.changeScene("view/BookEditAndDelete.fxml");
-    }
+	@FXML
+	void return_book_click(MouseEvent event) throws IOException {
+		Start.changeScene("view/BookReturn.fxml");
+	}
 
-    @FXML
-    void edit_book_click(MouseEvent event) throws IOException {
-    	Start.changeScene("view/BookEditAndDelete.fxml");
-    }
+	@FXML
+	void edit_and_delete_book_click(MouseEvent event) throws IOException {
+		Start.changeScene("view/BookEditAndDelete.fxml");
+	}
 
-    @FXML
-    void search_book_click(MouseEvent event) throws IOException {
-    	Start.changeScene("view/BookSearch.fxml");
-    }
+	@FXML
+	void search_book_click(MouseEvent event) throws IOException {
+		Start.changeScene("view/BookSearch.fxml");
+	}
 
 }
