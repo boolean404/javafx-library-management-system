@@ -73,11 +73,9 @@ public class AuthorController implements Initializable {
 				clearInputData();
 				loadAuthor();
 			}
-
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
-
 	}
 
 	@FXML

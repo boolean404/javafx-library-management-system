@@ -56,5 +56,4 @@ public class LibrarianLoginController {
 	void lbl_register_click(MouseEvent event) throws IOException {
 		Start.changeScene("view/LibrarianRegister.fxml");
 	}
-
 }

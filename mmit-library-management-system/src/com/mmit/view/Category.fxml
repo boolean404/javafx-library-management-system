@@ -11,67 +11,95 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.CategoryController">
+<AnchorPane prefHeight="720.0" prefWidth="1230.0"
+	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.mmit.controller.CategoryController">
 	<children>
-		<Pane layoutX="136.0" layoutY="137.0" prefHeight="462.0" prefWidth="384.0" style="-fx-background-color: #dbffed;">
+		<Pane layoutX="136.0" layoutY="137.0" prefHeight="462.0"
+			prefWidth="384.0" style="-fx-background-color: #dbffed;">
 			<children>
-				<TextField fx:id="txt_name" layoutX="66.0" layoutY="151.0" prefHeight="42.0" prefWidth="253.0" promptText="Category">
+				<TextField fx:id="txt_name" layoutX="66.0" layoutY="151.0"
+					prefHeight="42.0" prefWidth="253.0" promptText="Category">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</TextField>
-				<Button layoutX="66.0" layoutY="238.0" mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #1ccaff;" text="Add" textFill="WHITE">
+				<Button layoutX="66.0" layoutY="238.0"
+					mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0"
+					prefWidth="102.0" style="-fx-background-color: #1ccaff;" text="Add"
+					textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<Button layoutX="132.0" layoutY="286.0" mnemonicParsing="false" onAction="#btn_delete_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #ff5500;" text="Delete" textFill="WHITE">
+				<Button layoutX="132.0" layoutY="286.0"
+					mnemonicParsing="false" onAction="#btn_delete_click"
+					prefHeight="26.0" prefWidth="102.0"
+					style="-fx-background-color: #ff5500;" text="Delete"
+					textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<Label layoutX="66.0" layoutY="116.0" text="Category Name" textFill="#6b6666">
+				<Label layoutX="66.0" layoutY="116.0" text="Category Name"
+					textFill="#6b6666">
 					<font>
 						<Font size="16.0" />
 					</font>
 				</Label>
-            <Button layoutX="200.0" layoutY="238.0" mnemonicParsing="false" onAction="#btn_edit_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #55ff00;" text="Edit" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+				<Button layoutX="200.0" layoutY="238.0"
+					mnemonicParsing="false" onAction="#btn_edit_click"
+					prefHeight="26.0" prefWidth="102.0"
+					style="-fx-background-color: #55ff00;" text="Edit" textFill="WHITE">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
 			</children>
 		</Pane>
-		<Button layoutX="1091.0" layoutY="668.0" mnemonicParsing="false" onAction="#btn_logout_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #00676c;" text="Log Out" textFill="WHITE">
+		<Button layoutX="1091.0" layoutY="668.0"
+			mnemonicParsing="false" onAction="#btn_logout_click"
+			prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #00676c;" text="Log Out"
+			textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Button layoutX="38.0" layoutY="668.0" mnemonicParsing="false" onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
+		<Button layoutX="38.0" layoutY="668.0" mnemonicParsing="false"
+			onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Pane layoutX="15.0" layoutY="25.0" prefHeight="83.0" prefWidth="1200.0" style="-fx-background-color: #aeffff;">
+		<Pane layoutX="15.0" layoutY="25.0" prefHeight="83.0"
+			prefWidth="1200.0" style="-fx-background-color: #aeffff;">
 			<children>
-				<Label layoutX="536.0" layoutY="24.0" text="Categories" textFill="#514d4d">
+				<Label layoutX="536.0" layoutY="24.0" text="Categories"
+					textFill="#514d4d">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Label>
 			</children>
 		</Pane>
-		<ScrollPane layoutX="711.0" layoutY="137.0" prefHeight="462.0" prefWidth="384.0">
+		<ScrollPane layoutX="711.0" layoutY="137.0"
+			prefHeight="462.0" prefWidth="384.0">
 			<content>
-				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <TableView fx:id="tbl_category" prefHeight="462.0" prefWidth="384.0">
-                    <columns>
-                      <TableColumn fx:id="col_id" prefWidth="91.0" text="Id" />
-                      <TableColumn fx:id="col_name" prefWidth="292.0" text="Name" />
-                    </columns>
-                  </TableView>
-               </children>
+				<AnchorPane minHeight="0.0" minWidth="0.0"
+					prefHeight="200.0" prefWidth="200.0">
+					<children>
+						<TableView fx:id="tbl_category" prefHeight="462.0"
+							prefWidth="384.0">
+							<columns>
+								<TableColumn fx:id="col_id" prefWidth="91.0"
+									text="Id" />
+								<TableColumn fx:id="col_name" prefWidth="292.0"
+									text="Name" />
+							</columns>
+						</TableView>
+					</children>
 				</AnchorPane>
 			</content>
 		</ScrollPane>

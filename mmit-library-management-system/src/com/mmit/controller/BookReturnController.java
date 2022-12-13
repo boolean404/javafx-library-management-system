@@ -23,7 +23,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class BookReturnController implements Initializable {
-
+	List<Transaction> transaction_list;
 	Transaction selected_transaction = new Transaction();
 
 	@FXML
@@ -61,7 +61,54 @@ public class BookReturnController implements Initializable {
 
 	@FXML
 	void btn_return_click(ActionEvent event) {
+		try {
+			String card_id = txt_card_id.getText();
+			String code = txt_code.getText();
+			if (card_id.isEmpty())
+				Start.showAlert(AlertType.ERROR, "Insert member card ID and search!");
+			else if (code.isEmpty())
+				Start.showAlert(AlertType.ERROR, "Insert book code or select from table!");
+			else {
+				List<Transaction> exist_transaction = transaction_list.stream()
+						.filter(tl -> tl.getMember().getCard_id() == Integer.parseInt(card_id)
+								&& tl.getBookCode() == Integer.parseInt(code))
+						.toList();
 
+				if (exist_transaction.size() > 0) {
+					LocalDate due_date = exist_transaction.get(0).getDue_date();
+					float fees = exist_transaction.get(0).getFees();
+					int late_date = LocalDate.now().compareTo(due_date);
+
+					// calculation of fees 100/day
+					for (int i = 0; i < late_date; i++) {
+						fees = fees + 100;
+					}
+					
+					Book book = new Book();
+					book.setCode(Integer.parseInt(code));
+					book.setAvailable("Yes");
+
+					Member member = new Member();
+					member.setCard_id(Integer.parseInt(card_id));
+
+					Transaction transaction = new Transaction();
+					transaction.setBook(book);
+					transaction.setMember(member);
+					transaction.setReturn_date(LocalDate.now());
+					transaction.setFees(fees);
+
+					DatabaseHandler.returnBook(transaction); // book's return date set to localdate set fees
+					DatabaseHandler.editBookAvailable(book); // book's available set to 'Yes'
+					
+					Start.showAlert(AlertType.INFORMATION, "Successful returned book & Updated book available!");
+					loadTransaction();
+				} else
+					Start.showAlert(AlertType.ERROR, "No found transaction match with that card ID and book code!");
+			}
+
+		} catch (Exception e) {
+			Start.showAlert(AlertType.ERROR, e.getMessage());
+		}
 	}
 
 	@FXML
@@ -74,7 +121,6 @@ public class BookReturnController implements Initializable {
 				List<Transaction> transaction_list = DatabaseHandler
 						.searchTransactionByCardId(Integer.parseInt(card_id));
 				tbl_transaction.setItems(FXCollections.observableArrayList(transaction_list));
-
 			}
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
@@ -92,7 +138,7 @@ public class BookReturnController implements Initializable {
 	}
 
 	private void loadTransaction() throws Exception {
-		List<Transaction> transaction_list = DatabaseHandler.showAllTransaction();
+		transaction_list = DatabaseHandler.showAllTransaction();
 		tbl_transaction.setItems(FXCollections.observableArrayList(transaction_list));
 	}
 
@@ -104,6 +150,7 @@ public class BookReturnController implements Initializable {
 			col_book_id.setCellValueFactory(new PropertyValueFactory<>("bookCode"));
 			col_borrow_date.setCellValueFactory(new PropertyValueFactory<>("borrow_date"));
 			col_due_date.setCellValueFactory(new PropertyValueFactory<>("due_date"));
+			col_return_date.setCellValueFactory(new PropertyValueFactory<>("return_date"));
 			col_fees.setCellValueFactory(new PropertyValueFactory<>("fees"));
 			col_librarian.setCellValueFactory(new PropertyValueFactory<>("librarianEmail"));
 
@@ -114,13 +161,10 @@ public class BookReturnController implements Initializable {
 					selected_transaction = tbl_transaction.getSelectionModel().getSelectedItem();
 					txt_code.setText(selected_transaction.getBook().getCode() + "");
 				}
-
 			});
 
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
-
 	}
-
 }

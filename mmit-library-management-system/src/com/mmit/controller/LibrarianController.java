@@ -100,6 +100,9 @@ public class LibrarianController implements Initializable {
 
 	@FXML
 	void btn_delete_click(ActionEvent event) {
+
+		// only admin@mmit.com can delte and edit other librarians and not unable to
+		// delte admin@mmit.com
 		if (Start.librarian_login.getEmail().equals("admin@mmit.com")) {
 			if (selected_librarian.getId() != Start.librarian_login.getId()) {
 				try {
@@ -115,10 +118,8 @@ public class LibrarianController implements Initializable {
 				}
 			} else
 				Start.showAlert(AlertType.ERROR, "System need 1 admin user! \nDenied to delete admin!");
-
 		} else
 			Start.showAlert(AlertType.ERROR, "Permission Denied! \nOnly Admin can delete librarians!");
-
 	}
 
 	@FXML
@@ -135,7 +136,6 @@ public class LibrarianController implements Initializable {
 				Start.showAlert(AlertType.INFORMATION, "Successful edited!");
 				clearInputData();
 				loadLibrarian();
-
 			} catch (Exception e) {
 				Start.showAlert(AlertType.ERROR, e.getMessage());
 			}
@@ -152,18 +152,15 @@ public class LibrarianController implements Initializable {
 				Start.showAlert(AlertType.INFORMATION, "Successful edited your information!");
 				clearInputData();
 				loadLibrarian();
-
 			} catch (Exception e) {
 				Start.showAlert(AlertType.ERROR, e.getMessage());
 			}
-
 		} else
 			Start.showAlert(AlertType.ERROR, """
 					Permission Denied!
 					You can't edit other librarians except from Admin
 					You can edit only your information!
 											""");
-
 	}
 
 	private void clearInputData() {
@@ -172,7 +169,6 @@ public class LibrarianController implements Initializable {
 		txt_password.setText(null);
 		txt_nrcno.setText(null);
 		txt_phone.setText(null);
-
 	}
 
 	@FXML
@@ -205,7 +201,6 @@ public class LibrarianController implements Initializable {
 	private void loadLibrarian() throws Exception {
 		List<Librarian> list = DatabaseHandler.showAllLibrarian();
 		tbl_librarian.setItems(FXCollections.observableArrayList(list));
-
 	}
 
 	@Override
@@ -226,14 +221,11 @@ public class LibrarianController implements Initializable {
 					txt_password.setText(selected_librarian.getPassword());
 					txt_nrcno.setText(selected_librarian.getNrcno());
 					txt_phone.setText(selected_librarian.getPhone());
-
 				}
-
 			});
 
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
 	}
-
 }

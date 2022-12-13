@@ -10,35 +10,50 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.BookController">
+<AnchorPane prefHeight="720.0" prefWidth="1230.0"
+	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.mmit.controller.BookController">
 	<children>
-		<Button layoutX="1087.0" layoutY="665.0" mnemonicParsing="false" onAction="#btn_logout_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #00676c;" text="Log Out" textFill="WHITE">
+		<Button layoutX="1087.0" layoutY="665.0"
+			mnemonicParsing="false" onAction="#btn_logout_click"
+			prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #00676c;" text="Log Out"
+			textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Pane layoutX="14.0" layoutY="14.0" prefHeight="93.0" prefWidth="1201.0" style="-fx-background-color: #aeffff;">
+		<Pane layoutX="14.0" layoutY="14.0" prefHeight="93.0"
+			prefWidth="1201.0" style="-fx-background-color: #aeffff;">
 			<children>
-				<Label layoutX="487.0" layoutY="29.0" text="Library Book Menu" textFill="#544f4f">
+				<Label layoutX="487.0" layoutY="29.0" text="Library Book Menu"
+					textFill="#544f4f">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Label>
 			</children>
 		</Pane>
-		<Button layoutX="45.0" layoutY="665.0" mnemonicParsing="false" onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
+		<Button layoutX="45.0" layoutY="665.0" mnemonicParsing="false"
+			onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Pane layoutX="167.0" layoutY="188.0" onMouseClicked="#add_book_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="167.0" layoutY="188.0"
+			onMouseClicked="#add_book_click" prefHeight="200.0" prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0"
+					layoutX="25.0" layoutY="14.0" pickOnBounds="true"
+					preserveRatio="true">
 					<image>
-						<Image url="@../../../../assets/images/book_menu/add_book.png" />
+						<Image
+							url="@../../../../assets/images/book_menu/add_book.png" />
 					</image>
 				</ImageView>
-				<Label layoutX="62.0" layoutY="164.0" text="Add Book" textFill="#464242">
+				<Label layoutX="62.0" layoutY="164.0" text="Add Book"
+					textFill="#464242">
 					<font>
 						<Font name="System Bold" size="16.0" />
 					</font>
@@ -48,14 +63,20 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="515.0" layoutY="188.0" onMouseClicked="#edit_and_delete_book_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="515.0" layoutY="188.0"
+			onMouseClicked="#edit_and_delete_book_click" prefHeight="200.0"
+			prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0"
+					layoutX="45.0" layoutY="14.0" pickOnBounds="true"
+					preserveRatio="true">
 					<image>
-						<Image url="@../../../../assets/images/book_menu/edit_book.png" />
+						<Image
+							url="@../../../../assets/images/book_menu/edit_book.png" />
 					</image>
 				</ImageView>
-				<Label layoutX="26.0" layoutY="164.0" text="Edit &amp; Delete Book" textFill="#464242">
+				<Label layoutX="26.0" layoutY="164.0"
+					text="Edit &amp; Delete Book" textFill="#464242">
 					<font>
 						<Font name="System Bold" size="16.0" />
 					</font>
@@ -65,14 +86,20 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="879.0" layoutY="188.0" onMouseClicked="#book_list_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="879.0" layoutY="188.0"
+			onMouseClicked="#book_list_click" prefHeight="200.0"
+			prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0"
+					layoutX="25.0" layoutY="10.0" pickOnBounds="true"
+					preserveRatio="true">
 					<image>
-						<Image url="@../../../../assets/images/book_menu/book_list.jpg" />
+						<Image
+							url="@../../../../assets/images/book_menu/book_list.jpg" />
 					</image>
 				</ImageView>
-				<Label layoutX="62.0" layoutY="164.0" text="Book List" textFill="#464242">
+				<Label layoutX="62.0" layoutY="164.0" text="Book List"
+					textFill="#464242">
 					<font>
 						<Font name="System Bold" size="16.0" />
 					</font>
@@ -82,14 +109,20 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="879.0" layoutY="416.0" onMouseClicked="#return_book_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="879.0" layoutY="416.0"
+			onMouseClicked="#return_book_click" prefHeight="200.0"
+			prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0"
+					layoutX="25.0" layoutY="14.0" pickOnBounds="true"
+					preserveRatio="true">
 					<image>
-						<Image url="@../../../../assets/images/book_menu/return_book.png" />
+						<Image
+							url="@../../../../assets/images/book_menu/return_book.png" />
 					</image>
 				</ImageView>
-				<Label layoutX="50.0" layoutY="164.0" text="Return Book" textFill="#464242">
+				<Label layoutX="50.0" layoutY="164.0" text="Return Book"
+					textFill="#464242">
 					<font>
 						<Font name="System Bold" size="16.0" />
 					</font>
@@ -99,14 +132,20 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="515.0" layoutY="416.0" onMouseClicked="#search_book_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="515.0" layoutY="416.0"
+			onMouseClicked="#search_book_click" prefHeight="200.0"
+			prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0"
+					layoutX="36.0" layoutY="14.0" pickOnBounds="true"
+					preserveRatio="true">
 					<image>
-						<Image url="@../../../../assets/images/book_menu/search_book.png" />
+						<Image
+							url="@../../../../assets/images/book_menu/search_book.png" />
 					</image>
 				</ImageView>
-				<Label layoutX="62.0" layoutY="164.0" text="Search Book" textFill="#464242">
+				<Label layoutX="62.0" layoutY="164.0" text="Search Book"
+					textFill="#464242">
 					<font>
 						<Font name="System Bold" size="16.0" />
 					</font>
@@ -116,14 +155,20 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-		<Pane layoutX="167.0" layoutY="416.0" onMouseClicked="#borrow_book_click" prefHeight="200.0" prefWidth="200.0">
+		<Pane layoutX="167.0" layoutY="416.0"
+			onMouseClicked="#borrow_book_click" prefHeight="200.0"
+			prefWidth="200.0">
 			<children>
-				<ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="150.0" fitWidth="200.0"
+					layoutX="25.0" layoutY="14.0" pickOnBounds="true"
+					preserveRatio="true">
 					<image>
-						<Image url="@../../../../assets/images/book_menu/borrow_book.png" />
+						<Image
+							url="@../../../../assets/images/book_menu/borrow_book.png" />
 					</image>
 				</ImageView>
-				<Label layoutX="48.0" layoutY="164.0" text="Borrow Book" textFill="#464242">
+				<Label layoutX="48.0" layoutY="164.0" text="Borrow Book"
+					textFill="#464242">
 					<font>
 						<Font name="System Bold" size="16.0" />
 					</font>
@@ -133,20 +178,24 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Pane>
-      <Pane layoutX="887.0" layoutY="668.0" prefHeight="48.0" prefWidth="200.0">
-         <children>
-            <ImageView fitHeight="35.0" fitWidth="43.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../assets/images/profile.png" />
-               </image>
-            </ImageView>
-            <Text fx:id="txt_current_libraian" layoutX="50.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin@mmit.com" />
-            <Label layoutX="50.0" layoutY="5.0" text="Librarian">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
+		<Pane layoutX="887.0" layoutY="668.0" prefHeight="48.0"
+			prefWidth="200.0">
+			<children>
+				<ImageView fitHeight="35.0" fitWidth="43.0" layoutX="7.0"
+					layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@../../../../assets/images/profile.png" />
+					</image>
+				</ImageView>
+				<Text fx:id="txt_current_libraian" layoutX="50.0"
+					layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0"
+					text="admin@mmit.com" />
+				<Label layoutX="50.0" layoutY="5.0" text="Librarian">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Label>
+			</children>
+		</Pane>
 	</children>
 </AnchorPane>

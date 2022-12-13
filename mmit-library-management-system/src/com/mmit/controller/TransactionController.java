@@ -67,6 +67,7 @@ public class TransactionController implements Initializable {
 			col_book_id.setCellValueFactory(new PropertyValueFactory<>("bookCode"));
 			col_borrow_date.setCellValueFactory(new PropertyValueFactory<>("borrow_date"));
 			col_due_date.setCellValueFactory(new PropertyValueFactory<>("due_date"));
+			col_return_date.setCellValueFactory(new PropertyValueFactory<>("return_date"));
 			col_fees.setCellValueFactory(new PropertyValueFactory<>("fees"));
 			col_librarian.setCellValueFactory(new PropertyValueFactory<>("librarianEmail"));
 
@@ -74,7 +75,7 @@ public class TransactionController implements Initializable {
 			tbl_transaction.setItems(FXCollections.observableArrayList(transaction_list));
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
+			e.printStackTrace();
 		}
 	}
-
 }

@@ -57,5 +57,4 @@ public class MainController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		txt_current_libraian.setText(Start.librarian_login.getEmail());
 	}
-
 }

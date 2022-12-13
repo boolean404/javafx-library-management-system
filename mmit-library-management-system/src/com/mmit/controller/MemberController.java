@@ -182,7 +182,6 @@ public class MemberController implements Initializable {
 	private void loadMember() throws Exception {
 		List<Member> list = DatabaseHandler.showAllMember();
 		tbl_member.setItems(FXCollections.observableArrayList(list));
-
 	}
 
 	private void clearInputData() {
@@ -195,6 +194,7 @@ public class MemberController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
+			// adding to year cbo and showing
 			year_list.add("First Year");
 			year_list.add("Second Year");
 			year_list.add("Third Year");
@@ -223,11 +223,9 @@ public class MemberController implements Initializable {
 					cbo_year.setValue(selected_member.getYear());
 				}
 			});
-
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 			e.printStackTrace();
 		}
 	}
-
 }

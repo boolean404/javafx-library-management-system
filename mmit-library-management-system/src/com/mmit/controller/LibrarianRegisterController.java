@@ -59,12 +59,10 @@ public class LibrarianRegisterController {
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
-
 	}
 
 	@FXML
 	void lbl_login_click(MouseEvent event) throws IOException {
 		Start.changeScene("view/LibrarianLogin.fxml");
 	}
-
 }

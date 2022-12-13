@@ -81,44 +81,55 @@ public class BookBorrowController implements Initializable {
 				Start.showAlert(AlertType.ERROR, "Insert book code or select from table!");
 			else {
 				List<Member> exist_member = member_list.stream()
-						.filter(member -> member.getCard_id() == Integer.parseInt(card_id)).toList();
-
-				List<Book> exist_book = book_list.stream().filter(book -> book.getCode() == Integer.parseInt(code))
+						.filter(member -> member.getCard_id() == Integer.parseInt(card_id))
+						.toList();
+				
+				List<Book> exist_book = book_list.stream()
+						.filter(book -> book.getCode() == Integer.parseInt(code))
+						.toList();
+				
+				// list of existed member borrowed list
+				List<Transaction> exist_transaction = transaction_list.stream()
+						.filter(t -> t.getMember().getCard_id() == exist_member.get(0).getCard_id())
 						.toList();
 
-				List<Transaction> exist_transaction = transaction_list.stream()
-						.filter(t -> t.getMember().getCard_id() == exist_member.get(0).getCard_id()).toList();
-
+				// if new member borrow book 'register to card' alert
 				if (exist_member.size() > 0) {
-
 					int i = LocalDate.now().compareTo(exist_member.get(0).getExpired_date());
 					if (i <= 0) {
+
+						// if search book is having in book list and available is "Yes"
 						if (exist_book.size() > 0) {
 							if (exist_book.get(0).getAvailable().equals("Yes")) {
 
+								// if exist member search transaction and alert their due date
 								if (exist_transaction.size() > 0) {
 									if (exist_transaction.get(0).getMember().getCard_id() == exist_member.get(0)
 											.getCard_id()) {
+
+										// alert their borrowed book information
 										int borrowed_book = exist_transaction.size();
 										int j = LocalDate.now().compareTo(exist_transaction.get(0).getDue_date());
+
+										// only alert to return book when early book borrowed to remember due date
 										if (j <= 0) {
 											Start.showAlert(AlertType.INFORMATION,
 													"In your transaction, you borrowed '" + borrowed_book
 															+ "' book. \nRemember to return the first book until '"
 															+ exist_transaction.get(0).getDue_date() + "'.");
 
-										} else {
+										} else { // alert to return book when borrowed book's due date is over
 											Start.showAlert(AlertType.ERROR, "In '"
 													+ exist_transaction.get(0).getBorrow_date()
 													+ "', you borrowed book code with '"
 													+ exist_transaction.get(0).getBookCode()
-													+ "', that book's due date is pass. \nYou can't borrow any book if you not return that book. \nPress 'OK' to return book!");
+													+ "', that book's due date is over. \nYou can't borrow any book if you not return that book. \nPress 'OK' to return book!");
 											try {
 												Start.changeScene("view/BookReturn.fxml");
 											} catch (IOException e) {
-												e.printStackTrace();
-											}
+												Start.showAlert(AlertType.ERROR, e.getMessage());
 
+											}
 										}
 									}
 								}
@@ -135,7 +146,7 @@ public class BookBorrowController implements Initializable {
 									Transaction transaction = new Transaction();
 									transaction.setBook(book);
 									transaction.setMember(member);
-									transaction.setBorrow_date(LocalDate.now());
+//									transaction.setBorrow_date(LocalDate.now());
 									transaction.setDue_date(LocalDate.now().plusDays(5));
 									transaction.setFees(0);
 									transaction.setLibrarian(Start.librarian_login);
@@ -150,36 +161,28 @@ public class BookBorrowController implements Initializable {
 										Start.changeScene("view/Transaction.fxml");
 									} else
 										loadBook();
-								} catch (Exception e) {
+								} catch (Exception e) 
 									Start.showAlert(AlertType.ERROR, e.getMessage());
-								}
-
 							} else
 								Start.showAlert(AlertType.INFORMATION, "Book is not available now!");
 						} else
 							Start.showAlert(AlertType.ERROR, "No book found with book code : " + code);
-
 					} else
 						Start.showAlert(AlertType.ERROR, "Your Card is expired! \nCan't borrow book anymore!");
-
 				} else {
 					Optional<ButtonType> result = Start.showAlert(AlertType.CONFIRMATION,
 							"Not found user with this registered ID! \nPress 'OK' to go register page and register a new member");
 					if (result.get() == ButtonType.OK) {
 						Start.changeScene("view/Member.fxml");
 					}
-
 				}
 			}
-
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
 	}
 
 	private void loadBook() throws Exception {
-//		book_list = DatabaseHandler.showAllBook();
-//		tbl_book.setItems(FXCollections.observableArrayList(book_list));
 		book_list = DatabaseHandler.showAllBook();
 		member_list = DatabaseHandler.showAllMember();
 		transaction_list = DatabaseHandler.showAllTransaction();
@@ -210,11 +213,9 @@ public class BookBorrowController implements Initializable {
 					selected_book = tbl_book.getSelectionModel().getSelectedItem();
 					txt_code.setText(selected_book.getCode() + "");
 				}
-
 			});
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
 	}
-
 }

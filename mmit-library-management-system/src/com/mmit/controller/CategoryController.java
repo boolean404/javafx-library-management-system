@@ -101,7 +101,6 @@ public class CategoryController implements Initializable {
 	private void loadCategory() throws Exception {
 		List<Category> list = DatabaseHandler.showAllCategory();
 		tbl_category.setItems(FXCollections.observableArrayList(list));
-
 	}
 
 	private void clearInputData() {
@@ -121,13 +120,10 @@ public class CategoryController implements Initializable {
 					selected_category = tbl_category.getSelectionModel().getSelectedItem();
 					txt_name.setText(selected_category.getName());
 				}
-
 			});
 
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
-
 	}
-
 }

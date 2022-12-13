@@ -60,7 +60,7 @@ public class BookAddController implements Initializable {
 				Start.showAlert(AlertType.ERROR, "Choose Category!");
 			else {
 				int author_selected_index = cbo_author.getSelectionModel().getSelectedIndex();
-				int category_selected_index = cbo_author.getSelectionModel().getSelectedIndex();
+				int category_selected_index = cbo_category.getSelectionModel().getSelectedIndex();
 
 				Author selected_author = author_list.get(author_selected_index);
 				Category selected_category = category_list.get(category_selected_index);
@@ -84,7 +84,6 @@ public class BookAddController implements Initializable {
 				// reset data
 				clearInputData();
 			}
-
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}

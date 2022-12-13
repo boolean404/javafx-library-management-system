@@ -37,12 +37,10 @@ public class DatabaseHandler {
 			var query = "SELECT * FROM librarians WHERE email = ? AND password = ?";
 
 			PreparedStatement pstm = con.prepareStatement(query);
-
 			pstm.setString(1, email);
 			pstm.setString(2, password);
 
 			ResultSet result = pstm.executeQuery();
-
 			if (result.next()) {
 				librarian = new Librarian();
 				librarian.setId(result.getInt("id"));
@@ -61,14 +59,12 @@ public class DatabaseHandler {
 			var query = "INSERT INTO librarians(email, password, nrcno, phone)VALUES(?, ?, ?, ?)";
 
 			PreparedStatement pstm = con.prepareStatement(query);
-
 			pstm.setString(1, librarian.getEmail());
 			pstm.setString(2, librarian.getPassword());
 			pstm.setString(3, librarian.getNrcno());
 			pstm.setString(4, librarian.getPhone());
 
 			pstm.executeQuery();
-
 		} catch (Exception e) {
 			throw e;
 		}
@@ -109,7 +105,6 @@ public class DatabaseHandler {
 			pstm.setInt(5, selected_librarian.getId());
 
 			pstm.executeUpdate();
-
 		} catch (Exception e) {
 			throw e;
 		}
@@ -133,6 +128,7 @@ public class DatabaseHandler {
 			var query = "SELECT * FROM librarians WHERE librarians.id = ?";
 			var pstm = con.prepareStatement(query);
 			pstm.setInt(1, id);
+			
 			ResultSet rs = pstm.executeQuery();
 			if (rs.next()) {
 				librarian = new Librarian();
@@ -141,7 +137,6 @@ public class DatabaseHandler {
 				librarian.setNrcno(rs.getString("nrcno"));
 				librarian.setPhone(rs.getString("phone"));
 			}
-
 		} catch (Exception e) {
 			throw e;
 		}
@@ -153,6 +148,7 @@ public class DatabaseHandler {
 	public static void addAuthor(Author author) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "INSERT INTO authors(name, city, birthday)VALUES(?, ?, ?)";
+			
 			var pstm = con.prepareStatement(query);
 			pstm.setString(1, author.getName());
 			pstm.setString(2, author.getCity());
@@ -167,10 +163,11 @@ public class DatabaseHandler {
 	public static List<Author> showAllAuthor() throws Exception {
 		List<Author> author_list = new ArrayList<>();
 		try (Connection con = createConnection()) {
+			
 			var query = "SELECT * FROM authors";
 			var pstm = con.prepareStatement(query);
+			
 			ResultSet rs = pstm.executeQuery();
-
 			while (rs.next()) {
 				Author author = new Author();
 				author.setId(rs.getInt("id"));
@@ -189,6 +186,7 @@ public class DatabaseHandler {
 	public static void editAuthor(Author author) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "UPDATE authors SET name = ?, city = ?, birthday = ? WHERE id = ?";
+			
 			var pstm = con.prepareStatement(query);
 			pstm.setString(1, author.getName());
 			pstm.setString(2, author.getCity());
@@ -196,7 +194,6 @@ public class DatabaseHandler {
 			pstm.setInt(4, author.getId());
 
 			pstm.executeUpdate();
-
 		} catch (Exception e) {
 			throw e;
 		}
@@ -220,8 +217,8 @@ public class DatabaseHandler {
 		try (Connection con = createConnection()) {
 			var query = "SELECT * FROM categories";
 			var pstm = con.prepareStatement(query);
+			
 			ResultSet rs = pstm.executeQuery();
-
 			while (rs.next()) {
 				Category category = new Category();
 				category.setId(rs.getInt("id"));
@@ -240,6 +237,7 @@ public class DatabaseHandler {
 	public static void addCategory(Category category) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "INSERT INTO categories(name)VALUES(?)";
+			
 			var pstm = con.prepareStatement(query);
 			pstm.setString(1, category.getName());
 
@@ -252,6 +250,7 @@ public class DatabaseHandler {
 	public static void deleteCategory(int id) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "DELETE FROM categories WHERE id = ?";
+			
 			var pstm = con.prepareStatement(query);
 			pstm.setInt(1, id);
 
@@ -264,12 +263,12 @@ public class DatabaseHandler {
 	public static void editCategory(Category category) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "UPDATE categories SET name = ? WHERE id = ?";
+			
 			var pstm = con.prepareStatement(query);
 			pstm.setString(1, category.getName());
 			pstm.setInt(2, category.getId());
 
 			pstm.executeUpdate();
-
 		} catch (Exception e) {
 			throw e;
 		}
@@ -281,8 +280,8 @@ public class DatabaseHandler {
 	public static void addBook(Book book) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "INSERT INTO books(code, title, publish_date, author_id, category_id, created_by, available)VALUES(?, ?, ?, ?, ?, ?, ?)";
+			
 			var pstm = con.prepareStatement(query);
-
 			pstm.setInt(1, book.getCode());
 			pstm.setString(2, book.getTitle());
 			pstm.setDate(3, Date.valueOf(book.getPublish_date()));
@@ -292,7 +291,6 @@ public class DatabaseHandler {
 			pstm.setString(7, book.getAvailable());
 
 			pstm.executeUpdate();
-
 		} catch (Exception e) {
 			throw e;
 		}
@@ -407,10 +405,11 @@ public class DatabaseHandler {
 					FROM books, authors, categories, librarians
 					WHERE books.author_id = authors.id && books.category_id = categories.id && books.created_by = librarians.id && books.code = ?
 					""";
+			
 			var pstm = con.prepareStatement(query);
 			pstm.setInt(1, code);
+			
 			ResultSet rs = pstm.executeQuery();
-
 			if (rs.next()) {
 				Author auth = new Author();
 				auth.setId(rs.getInt("author_id"));
@@ -447,6 +446,7 @@ public class DatabaseHandler {
 					SET title = ?, publish_date = ?, author_id = ?, category_id = ?
 					WHERE code = ?
 					""";
+			
 			var pstm = con.prepareStatement(query);
 			pstm.setString(1, book.getTitle());
 			pstm.setDate(2, Date.valueOf(book.getPublish_date()));
@@ -463,9 +463,10 @@ public class DatabaseHandler {
 	public static void deleteBook(int code) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "DELETE FROM books WHERE code = ?";
+			
 			var pstm = con.prepareStatement(query);
-
 			pstm.setInt(1, code);
+			
 			pstm.executeUpdate();
 		} catch (Exception e) {
 			throw e;
@@ -478,8 +479,8 @@ public class DatabaseHandler {
 	public static void memberRegister(Member member) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "INSERT INTO members(roll_no, name, year, academic_year, expired_date)VALUES(?, ?, ?, ?, ?)";
+			
 			var pstm = con.prepareStatement(query);
-
 			pstm.setInt(1, member.getRoll_no());
 			pstm.setString(2, member.getName());
 			pstm.setString(3, member.getYear());
@@ -487,7 +488,6 @@ public class DatabaseHandler {
 			pstm.setDate(5, Date.valueOf(LocalDate.now().plusYears(1)));
 
 			pstm.executeUpdate();
-
 		} catch (Exception e) {
 			throw e;
 		}
@@ -499,8 +499,8 @@ public class DatabaseHandler {
 		try (Connection con = createConnection()) {
 			var query = "SELECT * FROM members";
 			var pstm = con.prepareStatement(query);
+			
 			ResultSet rs = pstm.executeQuery();
-
 			while (rs.next()) {
 				Member member = new Member();
 				member.setCard_id(rs.getInt("card_id"));
@@ -534,6 +534,7 @@ public class DatabaseHandler {
 	public static void editMember(Member member) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "UPDATE members SET roll_no = ?, name = ?, year = ?, academic_year = ? WHERE card_id = ?";
+			
 			var pstm = con.prepareStatement(query);
 			pstm.setInt(1, member.getRoll_no());
 			pstm.setString(2, member.getName());
@@ -542,7 +543,6 @@ public class DatabaseHandler {
 			pstm.setInt(5, member.getCard_id());
 
 			pstm.executeUpdate();
-
 		} catch (Exception e) {
 			throw e;
 		}
@@ -612,6 +612,7 @@ public class DatabaseHandler {
 				book.setCode(rs.getInt("book_id"));
 
 				Librarian librarian = new Librarian();
+				librarian.setId(rs.getInt("lib_id"));
 				librarian.setEmail(rs.getString("email"));
 
 				Transaction transaction = new Transaction();
@@ -620,6 +621,13 @@ public class DatabaseHandler {
 				transaction.setBook(book);
 				transaction.setBorrow_date(LocalDate.parse(rs.getString("borrow_date")));
 				transaction.setDue_date(LocalDate.parse(rs.getString("due_date")));
+				
+				// if borrow book, return date set to null
+				// if return book, return date set to localdate
+				if (rs.getString("return_date") != null) { // this part take so much time for me :)
+					transaction.setReturn_date(LocalDate.parse(rs.getString("return_date")));
+				}
+				
 				transaction.setFees(rs.getFloat("fees"));
 				transaction.setLibrarian(librarian);
 
@@ -627,25 +635,22 @@ public class DatabaseHandler {
 			}
 		} catch (Exception e) {
 			throw e;
-
 		}
 		return transaction_list;
 	}
 
 	public static void borrowBook(Transaction transaction) throws Exception {
 		try (Connection con = createConnection()) {
-			var query = "INSERT INTO transactions(card_id, book_id, borrow_date, due_date, fees, lib_id)VALUES(?, ?, ?, ?, ?, ?)";
+			var query = "INSERT INTO transactions(card_id, book_id, due_date, fees, lib_id)VALUES(?, ?, ?, ?, ?)";
 			var pstm = con.prepareStatement(query);
 
 			pstm.setInt(1, transaction.getMember().getCard_id());
 			pstm.setInt(2, transaction.getBookCode());
-			pstm.setDate(3, Date.valueOf(transaction.getBorrow_date()));
-			pstm.setDate(4, Date.valueOf(transaction.getDue_date()));
-			pstm.setFloat(5, transaction.getFees());
-			pstm.setInt(6, transaction.getLibrarian().getId());
+			pstm.setDate(3, Date.valueOf(transaction.getDue_date()));
+			pstm.setFloat(4, transaction.getFees());
+			pstm.setInt(5, transaction.getLibrarian().getId());
 
 			pstm.executeUpdate();
-
 		} catch (Exception e) {
 			throw e;
 		}
@@ -654,6 +659,7 @@ public class DatabaseHandler {
 	public static void editBookAvailable(Book book) throws Exception {
 		try (Connection con = createConnection()) {
 			var query = "UPDATE books SET available = ? WHERE code = ?";
+			
 			var pstm = con.prepareStatement(query);
 			pstm.setString(1, book.getAvailable());
 			pstm.setInt(2, book.getCode());
@@ -662,7 +668,6 @@ public class DatabaseHandler {
 		} catch (Exception e) {
 			throw e;
 		}
-
 	}
 
 	public static List<Transaction> searchTransactionByCardId(int card_id) throws Exception {
@@ -676,7 +681,7 @@ public class DatabaseHandler {
 					""";
 			var pstm = con.prepareStatement(query);
 			pstm.setInt(1, card_id);
-			
+
 			ResultSet rs = pstm.executeQuery();
 			while (rs.next()) {
 				Member member = new Member();
@@ -694,6 +699,7 @@ public class DatabaseHandler {
 				transaction.setBook(book);
 				transaction.setBorrow_date(LocalDate.parse(rs.getString("borrow_date")));
 				transaction.setDue_date(LocalDate.parse(rs.getString("due_date")));
+				transaction.setReturn_date(LocalDate.parse(rs.getString("return_date")));
 				transaction.setFees(rs.getFloat("fees"));
 				transaction.setLibrarian(librarian);
 
@@ -701,20 +707,27 @@ public class DatabaseHandler {
 			}
 		} catch (Exception e) {
 			throw e;
-
 		}
 		return transaction_list;
 	}
 
+	public static void returnBook(Transaction transaction) throws Exception {
+		try (Connection con = createConnection()) {
+			var query = """
+					UPDATE transactions
+					SET return_date = ?, fees = ?
+					WHERE transactions.card_id = ? && transactions.book_id = ?
+					""";
+			var pstm = con.prepareStatement(query);
+			pstm.setDate(1, Date.valueOf(transaction.getReturn_date()));
+			pstm.setFloat(2, transaction.getFees());
+			pstm.setInt(3, transaction.getMember().getCard_id());
+			pstm.setInt(4, transaction.getBook().getCode());
+
+			pstm.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		}
+	}
 	// end transaction section
-
-	// start category section
-	// end category section
-
-	// start category section
-	// end category section
-
-	// start category section
-	// end category section
-
 }

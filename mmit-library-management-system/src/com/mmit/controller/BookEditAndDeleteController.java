@@ -145,8 +145,6 @@ public class BookEditAndDeleteController implements Initializable {
 			cbo_category.setItems(FXCollections.observableArrayList(category_name_list));
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
-
 		}
 	}
-
 }

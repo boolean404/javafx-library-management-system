@@ -10,65 +10,97 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.BookAddController">
+<AnchorPane prefHeight="720.0" prefWidth="1230.0"
+	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.mmit.controller.BookAddController">
 	<children>
-		<Pane layoutX="16.0" layoutY="136.0" prefHeight="494.0" prefWidth="1200.0" style="-fx-background-color: #dbffed;">
+		<Pane layoutX="16.0" layoutY="136.0" prefHeight="494.0"
+			prefWidth="1200.0" style="-fx-background-color: #dbffed;">
 			<children>
-				<TextField fx:id="txt_title" layoutX="474.0" layoutY="105.0" prefHeight="42.0" prefWidth="253.0" promptText="Title" />
-				<Button layoutX="474.0" layoutY="442.0" mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #1ccaff;" text="Add" textFill="WHITE">
+				<TextField fx:id="txt_title" layoutX="474.0"
+					layoutY="105.0" prefHeight="42.0" prefWidth="253.0"
+					promptText="Title" />
+				<Button layoutX="474.0" layoutY="442.0"
+					mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0"
+					prefWidth="102.0" style="-fx-background-color: #1ccaff;" text="Add"
+					textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<DatePicker fx:id="txt_publish_date" layoutX="474.0" layoutY="189.0" prefHeight="42.0" prefWidth="253.0" promptText="Pick Date" />
-				<ComboBox fx:id="cbo_author" layoutX="474.0" layoutY="275.0" prefHeight="42.0" prefWidth="253.0" promptText="Choose Author" />
-				<ComboBox fx:id="cbo_category" layoutX="473.0" layoutY="360.0" prefHeight="42.0" prefWidth="253.0" promptText="Choose Category" />
-				<Label layoutX="299.0" layoutY="115.0" text="Book Title" textFill="#514d4d">
+				<DatePicker fx:id="txt_publish_date" layoutX="474.0"
+					layoutY="189.0" prefHeight="42.0" prefWidth="253.0"
+					promptText="Pick Date" />
+				<ComboBox fx:id="cbo_author" layoutX="474.0"
+					layoutY="275.0" prefHeight="42.0" prefWidth="253.0"
+					promptText="Choose Author" />
+				<ComboBox fx:id="cbo_category" layoutX="473.0"
+					layoutY="360.0" prefHeight="42.0" prefWidth="253.0"
+					promptText="Choose Category" />
+				<Label layoutX="299.0" layoutY="115.0" text="Book Title"
+					textFill="#514d4d">
 					<font>
 						<Font size="16.0" />
 					</font>
 				</Label>
-				<Label layoutX="297.0" layoutY="199.0" text="Publish Date" textFill="#514d4d">
+				<Label layoutX="297.0" layoutY="199.0" text="Publish Date"
+					textFill="#514d4d">
 					<font>
 						<Font size="16.0" />
 					</font>
 				</Label>
-				<Label layoutX="299.0" layoutY="285.0" text="Author" textFill="#514d4d">
+				<Label layoutX="299.0" layoutY="285.0" text="Author"
+					textFill="#514d4d">
 					<font>
 						<Font size="16.0" />
 					</font>
 				</Label>
-				<Label layoutX="297.0" layoutY="370.0" text="Category" textFill="#514d4d">
+				<Label layoutX="297.0" layoutY="370.0" text="Category"
+					textFill="#514d4d">
 					<font>
 						<Font size="16.0" />
 					</font>
 				</Label>
-            <TextField fx:id="txt_code" layoutX="474.0" layoutY="25.0" prefHeight="42.0" prefWidth="253.0" promptText="Code" />
-            <Label layoutX="299.0" layoutY="35.0" text="Book Code" textFill="#514d4d">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="625.0" layoutY="442.0" mnemonicParsing="false" onAction="#btn_reset_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #ff5500;" text="Reset" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+				<TextField fx:id="txt_code" layoutX="474.0" layoutY="25.0"
+					prefHeight="42.0" prefWidth="253.0" promptText="Code" />
+				<Label layoutX="299.0" layoutY="35.0" text="Book Code"
+					textFill="#514d4d">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+				<Button layoutX="625.0" layoutY="442.0"
+					mnemonicParsing="false" onAction="#btn_reset_click"
+					prefHeight="26.0" prefWidth="102.0"
+					style="-fx-background-color: #ff5500;" text="Reset"
+					textFill="WHITE">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
 			</children>
 		</Pane>
-		<Button layoutX="1091.0" layoutY="668.0" mnemonicParsing="false" onAction="#btn_logout_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #00676c;" text="Log Out" textFill="WHITE">
+		<Button layoutX="1091.0" layoutY="668.0"
+			mnemonicParsing="false" onAction="#btn_logout_click"
+			prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #00676c;" text="Log Out"
+			textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Button layoutX="38.0" layoutY="668.0" mnemonicParsing="false" onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
+		<Button layoutX="38.0" layoutY="668.0" mnemonicParsing="false"
+			onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Pane layoutX="15.0" layoutY="25.0" prefHeight="83.0" prefWidth="1200.0" style="-fx-background-color: #aeffff;">
+		<Pane layoutX="15.0" layoutY="25.0" prefHeight="83.0"
+			prefWidth="1200.0" style="-fx-background-color: #aeffff;">
 			<children>
-				<Label layoutX="543.0" layoutY="24.0" text="Add Book" textFill="#514d4d">
+				<Label layoutX="543.0" layoutY="24.0" text="Add Book"
+					textFill="#514d4d">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>

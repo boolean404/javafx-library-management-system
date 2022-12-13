@@ -12,86 +12,122 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.controller.AuthorController">
+<AnchorPane prefHeight="720.0" prefWidth="1230.0"
+	xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.mmit.controller.AuthorController">
 	<children>
-		<Pane layoutX="33.0" layoutY="137.0" prefHeight="442.0" prefWidth="449.0">
+		<Pane layoutX="33.0" layoutY="137.0" prefHeight="442.0"
+			prefWidth="449.0">
 			<children>
-				<TextField fx:id="txt_name" layoutX="83.0" layoutY="60.0" prefHeight="37.0" prefWidth="285.0" promptText="Author Name">
+				<TextField fx:id="txt_name" layoutX="83.0" layoutY="60.0"
+					prefHeight="37.0" prefWidth="285.0" promptText="Author Name">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</TextField>
-				<TextField fx:id="txt_native_town" layoutX="82.0" layoutY="149.0" prefHeight="37.0" prefWidth="285.0" promptText="Native Town">
+				<TextField fx:id="txt_native_town" layoutX="82.0"
+					layoutY="149.0" prefHeight="37.0" prefWidth="285.0"
+					promptText="Native Town">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</TextField>
-				<DatePicker fx:id="txt_birthday" layoutX="83.0" layoutY="240.0" prefHeight="37.0" prefWidth="285.0" promptText="Birthday">
+				<DatePicker fx:id="txt_birthday" layoutX="83.0"
+					layoutY="240.0" prefHeight="37.0" prefWidth="285.0"
+					promptText="Birthday">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</DatePicker>
-				<Button layoutX="97.0" layoutY="312.0" mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #1ccaff;" text="Add" textFill="WHITE">
+				<Button layoutX="97.0" layoutY="312.0"
+					mnemonicParsing="false" onAction="#btn_add_click" prefHeight="26.0"
+					prefWidth="102.0" style="-fx-background-color: #1ccaff;" text="Add"
+					textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<Button layoutX="244.0" layoutY="313.0" mnemonicParsing="false" onAction="#btn_edit_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #55ff00;" text="Edit" textFill="WHITE">
+				<Button layoutX="244.0" layoutY="313.0"
+					mnemonicParsing="false" onAction="#btn_edit_click"
+					prefHeight="26.0" prefWidth="102.0"
+					style="-fx-background-color: #55ff00;" text="Edit" textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-				<Button layoutX="174.0" layoutY="376.0" mnemonicParsing="false" onAction="#btn_delete_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #ff5500;" text="Delete" textFill="WHITE">
+				<Button layoutX="174.0" layoutY="376.0"
+					mnemonicParsing="false" onAction="#btn_delete_click"
+					prefHeight="26.0" prefWidth="102.0"
+					style="-fx-background-color: #ff5500;" text="Delete"
+					textFill="WHITE">
 					<cursor>
 						<Cursor fx:constant="HAND" />
 					</cursor>
 				</Button>
-            <Label layoutX="85.0" layoutY="30.0" text="Author Name" textFill="#514b4b">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="85.0" layoutY="116.0" text="Native Town" textFill="#514b4b">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="85.0" layoutY="208.0" text="Birthday" textFill="#514b4b">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
+				<Label layoutX="85.0" layoutY="30.0" text="Author Name"
+					textFill="#514b4b">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+				<Label layoutX="85.0" layoutY="116.0" text="Native Town"
+					textFill="#514b4b">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+				<Label layoutX="85.0" layoutY="208.0" text="Birthday"
+					textFill="#514b4b">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
 			</children>
 		</Pane>
-		<Button layoutX="1094.0" layoutY="662.0" mnemonicParsing="false" onAction="#btn_logout_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #00676c;" text="Log Out" textFill="WHITE">
+		<Button layoutX="1094.0" layoutY="662.0"
+			mnemonicParsing="false" onAction="#btn_logout_click"
+			prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #00676c;" text="Log Out"
+			textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Button layoutX="47.0" layoutY="662.0" mnemonicParsing="false" onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
+		<Button layoutX="47.0" layoutY="662.0" mnemonicParsing="false"
+			onAction="#btn_back_click" prefHeight="26.0" prefWidth="102.0"
+			style="-fx-background-color: #55557f;" text="Back" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Pane layoutX="16.0" layoutY="23.0" prefHeight="83.0" prefWidth="1200.0" style="-fx-background-color: #aeffff;">
+		<Pane layoutX="16.0" layoutY="23.0" prefHeight="83.0"
+			prefWidth="1200.0" style="-fx-background-color: #aeffff;">
 			<children>
-				<Label layoutX="552.0" layoutY="24.0" text="Authors" textFill="#514d4d">
+				<Label layoutX="552.0" layoutY="24.0" text="Authors"
+					textFill="#514d4d">
 					<font>
 						<Font name="System Bold" size="24.0" />
 					</font>
 				</Label>
 			</children>
 		</Pane>
-		<ScrollPane layoutX="529.0" layoutY="138.0" prefHeight="442.0" prefWidth="652.0">
+		<ScrollPane layoutX="529.0" layoutY="138.0"
+			prefHeight="442.0" prefWidth="652.0">
 			<content>
-				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+				<AnchorPane minHeight="0.0" minWidth="0.0"
+					prefHeight="200.0" prefWidth="200.0">
 					<children>
-						<TableView fx:id="tbl_author" prefHeight="442.0" prefWidth="652.0">
+						<TableView fx:id="tbl_author" prefHeight="442.0"
+							prefWidth="652.0">
 							<columns>
-								<TableColumn fx:id="col_id" prefWidth="75.0" text="Id" />
-								<TableColumn fx:id="col_name" prefWidth="204.0" text="Name" />
-								<TableColumn fx:id="col_native_town" prefWidth="166.0" text="Native Town" />
-								<TableColumn fx:id="col_birthday" prefWidth="206.0" text="Birthday" />
+								<TableColumn fx:id="col_id" prefWidth="75.0"
+									text="Id" />
+								<TableColumn fx:id="col_name" prefWidth="204.0"
+									text="Name" />
+								<TableColumn fx:id="col_native_town"
+									prefWidth="166.0" text="Native Town" />
+								<TableColumn fx:id="col_birthday" prefWidth="206.0"
+									text="Birthday" />
 							</columns>
 						</TableView>
 					</children>
