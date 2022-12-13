@@ -78,34 +78,36 @@ public class BookReturnController implements Initializable {
 					LocalDate due_date = exist_transaction.get(0).getDue_date();
 					float fees = exist_transaction.get(0).getFees();
 					int late_date = LocalDate.now().compareTo(due_date);
-
-					// calculation of fees 100/day
-					for (int i = 0; i < late_date; i++) {
-						fees = fees + 100;
-					}
 					
-					Book book = new Book();
-					book.setCode(Integer.parseInt(code));
-					book.setAvailable("Yes");
+					if(exist_transaction.get(0).getReturn_date() == null) {
+						// calculation of fees 100/day
+						for (int i = 0; i < late_date; i++) {
+							fees = fees + 100;
+						}
+						
+						Book book = new Book();
+						book.setCode(Integer.parseInt(code));
+						book.setAvailable("Yes");
 
-					Member member = new Member();
-					member.setCard_id(Integer.parseInt(card_id));
+						Member member = new Member();
+						member.setCard_id(Integer.parseInt(card_id));
 
-					Transaction transaction = new Transaction();
-					transaction.setBook(book);
-					transaction.setMember(member);
-					transaction.setReturn_date(LocalDate.now());
-					transaction.setFees(fees);
+						Transaction transaction = new Transaction();
+						transaction.setBook(book);
+						transaction.setMember(member);
+						transaction.setReturn_date(LocalDate.now());
+						transaction.setFees(fees);
 
-					DatabaseHandler.returnBook(transaction); // book's return date set to localdate set fees
-					DatabaseHandler.editBookAvailable(book); // book's available set to 'Yes'
-					
-					Start.showAlert(AlertType.INFORMATION, "Successful returned book & Updated book available!");
-					loadTransaction();
+						DatabaseHandler.returnBook(transaction); // book's return date set to localdate set fees
+						DatabaseHandler.editBookAvailable(book); // book's available set to 'Yes'
+						
+						Start.showAlert(AlertType.INFORMATION, "Successful returned book & Updated book available!");
+						loadTransaction();
+					}else
+						Start.showAlert(AlertType.ERROR, "That book already returned by member ID '"+exist_transaction.get(0).getMember().getCard_id()+"'");
 				} else
 					Start.showAlert(AlertType.ERROR, "No found transaction match with that card ID and book code!");
 			}
-
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
 		}
