@@ -677,7 +677,7 @@ public class DatabaseHandler {
 			var query = """
 					SELECT transactions.*, members.card_id, books.code, librarians.email
 					FROM transactions, members, books, librarians
-					WHERE transactions.card_id = members.card_id && transactions.book_id = books.code && transactions.lib_id = librarians.id && members.card_id = ?
+					WHERE transactions.card_id = members.card_id && transactions.book_id = books.code && transactions.lib_id = librarians.id && transactions.card_id = ?
 					""";
 			var pstm = con.prepareStatement(query);
 			pstm.setInt(1, card_id);
@@ -699,7 +699,13 @@ public class DatabaseHandler {
 				transaction.setBook(book);
 				transaction.setBorrow_date(LocalDate.parse(rs.getString("borrow_date")));
 				transaction.setDue_date(LocalDate.parse(rs.getString("due_date")));
-				transaction.setReturn_date(LocalDate.parse(rs.getString("return_date")));
+				
+				// if borrow book, return date set to null
+				// if return book, return date set to localdate
+				if (rs.getString("return_date") != null) { // this part take so much time for me :)
+					transaction.setReturn_date(LocalDate.parse(rs.getString("return_date")));
+				}
+				
 				transaction.setFees(rs.getFloat("fees"));
 				transaction.setLibrarian(librarian);
 

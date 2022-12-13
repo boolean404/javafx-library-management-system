@@ -121,6 +121,10 @@ public class BookReturnController implements Initializable {
 				List<Transaction> transaction_list = DatabaseHandler
 						.searchTransactionByCardId(Integer.parseInt(card_id));
 				tbl_transaction.setItems(FXCollections.observableArrayList(transaction_list));
+				
+				// alert msg when no find with that ID
+				if(transaction_list.size()==0)
+					Start.showAlert(AlertType.ERROR, "Card holder doesn't borrowed any book!");
 			}
 		} catch (Exception e) {
 			Start.showAlert(AlertType.ERROR, e.getMessage());
