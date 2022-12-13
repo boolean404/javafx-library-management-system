@@ -161,8 +161,9 @@ public class BookBorrowController implements Initializable {
 										Start.changeScene("view/Transaction.fxml");
 									} else
 										loadBook();
-								} catch (Exception e) 
+								} catch (Exception e) {
 									Start.showAlert(AlertType.ERROR, e.getMessage());
+									}
 							} else
 								Start.showAlert(AlertType.INFORMATION, "Book is not available now!");
 						} else
